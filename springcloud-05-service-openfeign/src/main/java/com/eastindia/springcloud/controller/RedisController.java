@@ -12,10 +12,16 @@ public class RedisController {
     @Autowired
     RedisService redisService;
 
-    @RequestMapping("testString")
-    public void testredis() {
+    @RequestMapping("testRedis")
+    public void testRedis() {
 
         redisService.testRedis();
+    }
+
+    @RequestMapping("testJedis")
+    public void testJedis() {
+
+        redisService.testJedis();
     }
 
 

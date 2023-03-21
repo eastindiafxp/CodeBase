@@ -10,4 +10,7 @@ public interface RedisService {
     @RequestMapping("/redis/testRedis")
     public void testRedis();
 
+    @RequestMapping("/redis/testJedis")
+    public void testJedis();
+
 }
