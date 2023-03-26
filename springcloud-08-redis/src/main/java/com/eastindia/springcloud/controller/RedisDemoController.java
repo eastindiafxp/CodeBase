@@ -4,10 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import redis.clients.jedis.Jedis;
-import redis.clients.jedis.JedisPool;
-import redis.clients.jedis.JedisPoolConfig;
-import redis.clients.jedis.JedisSentinelPool;
+import redis.clients.jedis.*;
 
 import java.time.Duration;
 import java.util.HashSet;
@@ -181,7 +178,24 @@ public class RedisDemoController {
         Jedis jedis = jedisSentinelPool.getResource();
         Set<String> keys = jedis.keys("*");
 
+        jedisSentinelPool.close();
+    }
 
+    /**
+     * jedis操作redis集群
+     */
+    @RequestMapping("testCluster")
+    public void testCluster() {
+
+        Set<HostAndPort> nodes = new HashSet<>();
+        nodes.add(new HostAndPort("127.0.0.1", 7001));
+        JedisCluster jedisCluster = new JedisCluster(nodes);
+
+        jedisCluster.set("name", "zhangsan");
+        String name = jedisCluster.get("name");
+        System.out.println(name);
+
+        jedisCluster.close();
     }
 
 //    public static void main(String[] args) {

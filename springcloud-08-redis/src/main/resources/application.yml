@@ -5,13 +5,26 @@ spring:
     port: 6379
     password: '952008fxpdl'
     database: 0
+    cluster:
+      nodes:
+#        地址要和redis配置中bind地址一致
+        - 127.0.0.1:6379
+        - 127.0.0.1:6380
+        - 127.0.0.1:6381
+        - 127.0.0.1:6382
+    jedis:
+      pool:
+        max-active: 1000
+        max-idle: 100
+        min-idle: 1
+        max-wait: -1
+    connect-timeout: 15000   #超时时间15s
+    #哨兵机制配置
+    sentinel:
+      master:
+        nodes: 192.168.51.1:26379,192.168.51.2:26380,192.168.51.3:26381
+        master: mymaster  #配置文件中配置的名字
 
-#spring:
-#  redis:
-#    sentinel:
-#      master:
-#        nodes: 192.168.51.1:26379,192.168.51.2:26380,192.168.51.3:26381
-#        master: mymaster  #配置文件中配置的名字
 
 
 
