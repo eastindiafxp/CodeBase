@@ -7,8 +7,10 @@ import org.springframework.web.bind.annotation.RestController;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
+import redis.clients.jedis.JedisSentinelPool;
 
 import java.time.Duration;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -156,6 +158,36 @@ public class RedisDemoController {
         jedisPool.close();
 
     }
+
+    /**
+     * jedis操作sentinel
+     */
+    @RequestMapping("/testSentinel")
+    public void testSentinel() {
+
+//        构建jedisPoolConfig配置对象,连接池
+        JedisPoolConfig config = new JedisPoolConfig();
+        config.setMaxIdle(10);//最大空闲连接数
+        config.setMinIdle(5);//最小空闲连接
+        config.setMaxWait(Duration.ofSeconds(3));//最大阻塞等待时间
+        config.setMaxTotal(50);//最大连接数
+
+        Set<String> sentinels = new HashSet<>();
+        sentinels.add("192.168.51.1:26379");
+        sentinels.add("192.168.51.2:26380");
+        sentinels.add("192.168.51.3:26381");
+        JedisSentinelPool jedisSentinelPool = new JedisSentinelPool("mymaster", sentinels, config);
+
+        Jedis jedis = jedisSentinelPool.getResource();
+        Set<String> keys = jedis.keys("*");
+
+
+    }
+
+//    public static void main(String[] args) {
+//
+//
+//    }
 
 
 }

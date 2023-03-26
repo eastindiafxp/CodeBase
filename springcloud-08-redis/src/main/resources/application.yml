@@ -6,7 +6,12 @@ spring:
     password: '952008fxpdl'
     database: 0
 
-
+#spring:
+#  redis:
+#    sentinel:
+#      master:
+#        nodes: 192.168.51.1:26379,192.168.51.2:26380,192.168.51.3:26381
+#        master: mymaster  #配置文件中配置的名字
 
 
 
