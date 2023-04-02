@@ -59,6 +59,7 @@
 
     <build>
         <plugins>
+            <!--            部署springboot的插件，只有加了这个插件，当运行java -jar xxx.jar才能正常启动-->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
