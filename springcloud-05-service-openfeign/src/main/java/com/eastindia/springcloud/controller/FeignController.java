@@ -18,4 +18,14 @@ public class FeignController {
         return helloService.hello();
     }
 
+
+    public static void main(String[] args) {
+        System.out.println(FeignController.class.getClassLoader());
+        System.out.println(FeignController.class.getClassLoader().getClass().getClassLoader());
+        System.out.println(FeignController.class.getClassLoader().getParent());
+        System.out.println(FeignController.class.getClassLoader().getParent().getParent());
+        System.out.println(String.class.getClassLoader());
+    }
+
+
 }

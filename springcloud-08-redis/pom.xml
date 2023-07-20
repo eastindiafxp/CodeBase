@@ -17,7 +17,7 @@
     <name>springcloud-08-redis</name>
     <description>springcloud-08-redis</description>
     <properties>
-        <java.version>19</java.version>
+        <java.version>17</java.version>
     </properties>
     <dependencies>
 

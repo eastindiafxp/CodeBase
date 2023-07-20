@@ -9,7 +9,7 @@ public class HelloController {
 
     @RequestMapping("/service/hello")
     public String hello () {
-        System.out.println("服务提供者11111111");
+//        System.out.println("服务提供者11111111");
 
         try {
             Thread.sleep(3000);
@@ -17,6 +17,13 @@ public class HelloController {
             throw new RuntimeException(e);
         }
         return "Hello World!provider1";
+    }
+
+    @RequestMapping("/service/fxpTest1")
+    public String fxpTest1() {
+
+        System.out.println("服务提供者1111111---fxpTest");
+        return "fxpTest1==============================";
     }
 
     @RequestMapping("/service/user")

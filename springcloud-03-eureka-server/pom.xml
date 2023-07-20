@@ -16,8 +16,9 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>springcloud-03-eureka-server</name>
     <description>springcloud-03-eureka-server</description>
+<!--    <packaging>jar</packaging>-->
     <properties>
-        <java.version>19</java.version>
+        <java.version>17</java.version>
     </properties>
     <dependencies>
         <dependency>
