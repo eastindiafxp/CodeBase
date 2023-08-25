@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.eastindia.system.mapper.UserMapper">
+    <resultMap id="BaseResultMap" type="com.eastindia.system.bean.SysUser">
+        <id column="id" jdbcType="INTEGER" property="id" ></id>
+        <result column="id_card_no" jdbcType="VARCHAR" property="idCardNo" />
+        <result column="user_name" jdbcType="VARCHAR" property="userName" />
+        <result column="age" jdbcType="INTEGER" property="age" />
+        <result column="gender" jdbcType="VARCHAR" property="gender" />
+        <result column="phone_no" jdbcType="VARCHAR" property="phoneNo" />
+        <result column="department_id" jdbcType="VARCHAR" property="departmentId" />
+        <result column="password" jdbcType="VARCHAR" property="password" />
+        <result column="salt" jdbcType="VARCHAR" property="salt" />
+        <result column="err_count" jdbcType="INTEGER" property="errCount" />
+        <result column="show_status" jdbcType="VARCHAR" property="showStatus" />
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    </resultMap>
+
+    <sql id="Base_Column" >
+        id, id_card_no, user_name, age, gender, phone_no, department_id, password, salt, err_count,
+            show_status, update_time, create_time
+    </sql>
+
+    <select id="getAllUserList" resultMap="BaseResultMap" parameterType="java.util.Map">
+        select
+            <include refid="Base_Column"/>
+        from sys_user
+    </select>
+
+</mapper>
