@@ -15,7 +15,7 @@ import java.util.Set;
  * 实战中都是使用redisTemplate，而不是用原生的jedis
  */
 @RestController
-@RequestMapping("redis")
+@RequestMapping("/redis")
 public class RedisDemoController {
 
     @Autowired

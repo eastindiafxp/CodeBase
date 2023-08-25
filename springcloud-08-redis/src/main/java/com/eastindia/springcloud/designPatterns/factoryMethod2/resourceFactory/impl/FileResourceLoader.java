@@ -1,0 +1,12 @@
+package com.eastindia.springcloud.designPatterns.factoryMethod2.resourceFactory.impl;
+
+import com.eastindia.springcloud.designPatterns.factoryMethod2.resourceFactory.IResourceLoader;
+import com.eastindia.springcloud.designPatterns.simpleFactory.Resource;
+
+public class FileResourceLoader implements IResourceLoader {
+    @Override
+    public Resource load(String url) {
+//        中间省略复杂的创建过程
+        return new Resource(url);
+    }
+}
