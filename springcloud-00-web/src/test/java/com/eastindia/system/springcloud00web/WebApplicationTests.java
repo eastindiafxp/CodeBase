@@ -1,4 +1,4 @@
-package com.eastindia.springcloud.springcloud00web;
+package com.eastindia.system.springcloud00web;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
